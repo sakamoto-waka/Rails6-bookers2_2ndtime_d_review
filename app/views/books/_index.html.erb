@@ -25,14 +25,15 @@
       </tr>
 
       <script>
+        $('#star-<%= book.id %>').empty();
         $('#star-<%= book.id %>').raty({
-          size: 36,
+          size: 10,
           starOff: '<%= asset_path('star-off.png') %>',
           starOn: '<%= asset_path('star-on.png') %>',
           starHalf: '<%= asset_path('star-half.png') %>',
-          // 表示はbookの中のrateを持ってくる
           half: true,
           readOnly: true,
+          // 値はbookの中のrateを持ってくる
           score: <%= book.rate %>,
         });
       </script>
