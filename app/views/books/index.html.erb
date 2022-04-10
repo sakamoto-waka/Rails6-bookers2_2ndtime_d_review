@@ -14,7 +14,7 @@
       <%= link_to '評価の高い順', books_path(high_rate: 'true') %><br>
       <% if @tag_list.exists? %>  
         <%= @tag_list.each do |one_tag| %>
-          <%= one_tag.name %>
+          <%= link_to one_tag.name, search_tag_path(tag_id: one_tag.id) %>
           <%= "(#{one_tag.books.count})" %>
         <% end %>
       <% end %>  
