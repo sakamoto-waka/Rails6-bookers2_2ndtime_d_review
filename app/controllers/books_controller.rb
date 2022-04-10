@@ -8,7 +8,15 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:old]
+      @books = Book.old
+    elsif params[:high_rate]
+      @books = Book.high_rate
+    else
+      @books = Book.all
+    end
     @book = Book.new
   end
 
@@ -44,6 +52,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+  
 
   private
 
