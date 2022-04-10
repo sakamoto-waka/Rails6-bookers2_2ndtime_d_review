@@ -27,20 +27,7 @@
             <%= render 'favorites/favorite_btn', book: @book %>
           </td>
           <td>コメント数: <%= @book.book_comments.count %></td>
-          <td class="form-group" id="star-<%= @book.id %>"></td>
-          <script>
-            $('#star-<%= @book.id %>').empty();
-            $('#star-<%= @book.id %>').raty({
-              size: 36,
-              starOff: '<%= asset_path('star-off.png') %>',
-              starOn: '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              half: true,
-              readOnly: true,
-              // 値はbookの中のrateを持ってくる
-              score: <%= @book.rate %>,
-            });
-          </script>
+          <td><%= render 'books/book_rate_readonly', book: @book %></td>
 
           <% if @user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>

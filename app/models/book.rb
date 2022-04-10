@@ -41,7 +41,8 @@ class Book < ApplicationRecord
     
     # 古い（重複してる）タグは消す
     old_tags.each do |old_tag|
-      self.tags.delete#(Tag.find_by(name: old_tag))
+      tags = Tag.find_by(name: old_tag)
+      tags.delete
     end
     
     # 新しい（重複していない）タグはtagsの中に代入する

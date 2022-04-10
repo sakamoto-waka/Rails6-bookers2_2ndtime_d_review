@@ -28,22 +28,8 @@
           <%= render 'favorites/favorite_btn', book: book %>
         </td>
         <td>コメント数: <%= book.book_comments.count %></td>
-        <td class="form-group" id="star-<%= book.id %>"></td>
+        <td><%= render 'books/book_rate_readonly', book: book %></td> 
       </tr>
-
-      <script>
-        $('#star-<%= book.id %>').empty();
-        $('#star-<%= book.id %>').raty({
-          size: 10,
-          starOff: '<%= asset_path('star-off.png') %>',
-          starOn: '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          // 値はbookの中のrateを持ってくる
-          score: <%= book.rate %>,
-        });
-      </script>
   
     <% end %>
   </tbody>

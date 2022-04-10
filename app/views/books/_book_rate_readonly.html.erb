@@ -1,0 +1,14 @@
+<div class="form-group" id="star-<%= book.id %>"></div>
+<script>
+  $('#star-<%= book.id %>').empty();
+  $('#star-<%= book.id %>').raty({
+    size: 36,
+    starOff: '<%= asset_path('star-off.png') %>',
+    starOn: '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    // 値はbookの中のrateを持ってくる
+    score: <%= book.rate %>,
+  });
+</script>
