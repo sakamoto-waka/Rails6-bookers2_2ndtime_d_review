@@ -18,6 +18,8 @@
             <%= link_to one_tag.name, search_tag_path(tag_id: one_tag.id) %>
             <%= "(#{one_tag.books.count})" %>
           <% end %>
+        <% else %>
+          <div></div>
         <% end %>  
       </div>
       <%= render 'index', books: @books %>

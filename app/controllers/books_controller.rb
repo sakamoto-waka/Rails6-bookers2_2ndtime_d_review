@@ -30,6 +30,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
+      @tag_list = Tag.all
       render 'index'
     end
   end

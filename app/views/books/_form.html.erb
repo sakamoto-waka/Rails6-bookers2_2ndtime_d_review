@@ -15,7 +15,7 @@
       <%= f.text_field :name, value: @tag_list, class: "form-control"%>
     <% end %>
   </div>
-  <% if book.blank? %>
+  <% if book.id.blank? %>
   <div class="form-group" id="star">
     <%= f.label :star,'Rate', class:'mr-1' %>
     <%= f.hidden_field :rate, id: :review_rate %>
