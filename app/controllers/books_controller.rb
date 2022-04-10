@@ -47,6 +47,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     tag_list = params[:book][:name].split(',')
     if @book.update(book_params)
+      # この記述がないとeditでタグを消しても消えない
+      old_tag = BookTag.where(book_id: @book.id)
+      old_tag.each do |one_tag|
+        one_tag.delete
+      end
       @book.save_tag(tag_list)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
