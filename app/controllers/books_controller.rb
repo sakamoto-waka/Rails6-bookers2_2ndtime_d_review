@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     else
       @books = Book.all
     end
+    @tag_list = Tag.all
     @book = Book.new
   end
 
