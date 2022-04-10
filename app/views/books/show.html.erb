@@ -18,6 +18,10 @@
           </td>
           <td><%= link_to @book.title, @book %></td>
           <td><%= @book.body %></td>
+          <% @book_tags.each do |one_tag| %>
+            <%= link_to tag.name, search_tag_path(tag_id: one_tag.id) %>
+            <%= "(#{one_tag.books.count})" %>
+          <% end %>
           <td class="favorite_btn_<%= @book.id %>">
             <%= render 'favorites/favorite_btn', book: @book %>
           </td>
