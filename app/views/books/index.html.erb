@@ -11,13 +11,15 @@
       <h2>Books</h2>
       <%= link_to '新しい順', books_path(latest: 'true') %> ｜
       <%= link_to '古い順', books_path(old: 'true') %> ｜
-      <%= link_to '評価の高い順', books_path(high_rate: 'true') %><br>
-      <% if @tag_list.exists? %>  
-        <%= @tag_list.each do |one_tag| %>
-          <%= link_to one_tag.name, search_tag_path(tag_id: one_tag.id) %>
-          <%= "(#{one_tag.books.count})" %>
-        <% end %>
-      <% end %>  
+      <%= link_to '評価の高い順', books_path(high_rate: 'true') %>
+      <div class="mb-2">
+        <% if @tag_list.exists? %>  
+          <% @tag_list.each do |one_tag| %>
+            <%= link_to one_tag.name, search_tag_path(tag_id: one_tag.id) %>
+            <%= "(#{one_tag.books.count})" %>
+          <% end %>
+        <% end %>  
+      </div>
       <%= render 'index', books: @books %>
     </div>
   </div>
