@@ -1,0 +1,27 @@
+<div class="container">
+  <h5><%= @tag.name %>の検索結果</h5>
+  <% @tag_list.each do |one_tag| %>
+    <%= link_to one_tag.name, search_tag_path(tag_id: one_tag.id) %>
+    <%= "(#{one_tag.books.count})" %>
+  <% end %>
+  <%# @books.each do |book| %>
+    <div class="card">
+      <div class="card-body">
+<% if false %>  
+コメントアウト中
+        <h6 class="card-title">
+          <%= link_to book_path(book) do %>
+            <%= book.title.truncate(25) %>
+          <% end %>
+        </h6>
+        <h6>
+          <div id=<%= book.id %>>
+            <%#= render 'books/index', books: @books %>
+          </div>
+        </h6>
+<% end %>
+        <div><%= render 'books/index', books: @books %></div>
+      </div>
+    </div>
+  <%# end %>
+</div>
