@@ -59,6 +59,11 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
   
+  def search_tag
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @books = @tag.books
+  end
 
   private
 
