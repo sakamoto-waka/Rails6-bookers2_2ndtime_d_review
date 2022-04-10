@@ -46,6 +46,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     tag_list = params[:book][:name].split(',')
     if @book.update(book_params)
+      @book.save_tag(tag_list)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
       render "edit"
