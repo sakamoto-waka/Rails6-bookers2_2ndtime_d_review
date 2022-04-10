@@ -5,7 +5,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @book_comment = BookComment.new
-    @book_tag = @book.ta
   end
 
   def index
@@ -24,7 +23,7 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.new(book_params)
-    tag_list = params[:book][:name].split(',')
+    tag_list = params[:book][:tag].split(',')
     if @book.save
       @book.save_tag(tag_list)
       redirect_to book_path(@book), notice: "You have created book successfully."
@@ -37,6 +36,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @user = @book.user
+    @tag_list = @book.tags.pluck(:name).join(',')
     unless @user == current_user
       redirect_to books_path
     end
