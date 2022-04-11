@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
     elsif @range == 'Book'
       @records = Book.looks(@search, @word)
     else
-      @records = Tag.looks(@search, @word)
+      @records = Tag.looks_books_for(@search, @word)
     end
   end
 end

@@ -5,8 +5,6 @@
     <%= "(#{one_tag.books.count})" %>
   <% end %>
   <%# @books.each do |book| %>
-    <div class="card">
-      <div class="card-body">
 <% if false %>  
 コメントアウト中
         <h6 class="card-title">
@@ -21,7 +19,5 @@
         </h6>
 <% end %>
         <div><%= render 'books/index', books: @books %></div>
-      </div>
-    </div>
   <%# end %>
 </div>

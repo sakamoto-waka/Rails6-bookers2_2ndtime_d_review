@@ -1,9 +1,11 @@
 <table class="table table-hover">
-  <% if @range == 'User' %>
-    <tbody>
+  <tbody>
+    <% if @range == 'User' %>
       <%= render 'users/index', users: @records %>
-  <% else %>
+    <% elsif @range == 'Book' %>
       <%= render 'books/index', books: @records %>
-    </tbody>
-  <% end %>
+    <% else %>
+      <%= render 'books/index', books: @records %>
+    <% end %>
+  </tbody>
 </table>
