@@ -13,7 +13,7 @@ class Book < ApplicationRecord
 
   scope :latest, -> { order(created_at: :desc) }
   scope :old, -> { order(created_at: :asc) }
-  scope :high_rate, -> { order(rate: :asc) }
+  scope :high_rate, -> { order(rate: :desc) }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

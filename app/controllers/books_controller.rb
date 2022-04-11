@@ -56,6 +56,7 @@ class BooksController < ApplicationController
       @book.save_tag(tag_list)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
+      @tag_list = @book.tags.pluck(:name).join(',')
       render "edit"
     end
   end
