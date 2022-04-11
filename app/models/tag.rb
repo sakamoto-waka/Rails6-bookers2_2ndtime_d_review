@@ -13,5 +13,9 @@ class Tag < ApplicationRecord
       tags = Tag.where('name LIKE ?', "%#{word}%")
     end
     return tags.inject(init = []) { |result, tag| result + tag.books }
+    # init = []
+    # tags.each do |tag|
+    #   return init + tag.books
+    # end
   end
 end
