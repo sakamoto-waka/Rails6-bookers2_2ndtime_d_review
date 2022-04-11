@@ -48,7 +48,8 @@ class Book < ApplicationRecord
     new_tags.each do |new_tag|
       new_book_tag = Tag.find_or_create_by(name: new_tag)
       # 代入！
-      self.tags << new_book_tag
+      # self.tags << new_book_tag
+      book_tags.new(user_id: user_id, tag_id: new_book_tag.id).save
     end
   end
   
